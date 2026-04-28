@@ -24,8 +24,6 @@ class SwipeExt(object):
         Raises:
             ValueError
         """
-        def _swipe(_from, _to):
-            self._d.swipe(_from[0], _from[1], _to[0], _to[1], speed=speed)
 
         if scale <= 0 or scale > 1.0 or not isinstance(scale, (float, int)):
             raise ValueError("scale must be in range (0, 1.0]")
@@ -68,17 +66,4 @@ class SwipeExt(object):
         Returns:
             Tuple[int, int, int, int]: The validated and converted box coordinates.
         """
-        if not isinstance(box, tuple) or len(box) != 4:
-            raise ValueError("Box must be a tuple of length 4.")
-        x1, y1, x2, y2 = box
-        if not (x1 >= 0 and y1 >= 0 and x2 > 0 and y2 > 0):
-            raise ValueError("Box coordinates must be greater than 0.")
-        if not (x1 < x2 and y1 < y2):
-            raise ValueError("Box coordinates must satisfy x1 < x2 and y1 < y2.")
-
-        from .driver import Point
-        p1: Point = self._d._to_abs_pos(x1, y1)
-        p2: Point = self._d._to_abs_pos(x2, y2)
-        x1, y1, x2, y2 = p1.x, p1.y, p2.x, p2.y
-
-        return x1, y1, x2, y2
+        pass
