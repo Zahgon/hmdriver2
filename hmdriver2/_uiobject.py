@@ -37,20 +37,10 @@ class UiObject:
     DEFAULT_TIMEOUT = 2
 
     def __init__(self, client: HmClient, **kwargs) -> None:
-        self._client = client
-        self._raw_kwargs = kwargs
-
-        self._index = kwargs.pop("index", 0)
-        self._isBefore = kwargs.pop("isBefore", False)
-        self._isAfter = kwargs.pop("isAfter", False)
-
-        self._kwargs = kwargs
-        self.__verify()
-
-        self._component: Union[ComponentData, None] = None  # cache
+        pass
 
     def __str__(self) -> str:
-        return f"UiObject [{self._raw_kwargs}"
+        pass
 
     def __verify(self):
         pass
