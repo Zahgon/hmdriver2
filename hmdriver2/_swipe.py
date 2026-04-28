@@ -10,11 +10,13 @@ class SwipeExt(object):
     def __init__(self, d: Driver):
         self._d = d
 
-    def __call__(self,
-                 direction: Union[SwipeDirection, str],
-                 scale: float = 0.8,
-                 box: Union[Tuple, None] = None,
-                 speed=2000):
+    def __call__(
+        self,
+        direction: Union[SwipeDirection, str],
+        scale: float = 0.8,
+        box: Union[Tuple, None] = None,
+        speed=2000,
+    ):
         """
         Args:
             direction (str): one of "left", "right", "up", "bottom" or SwipeDirection.LEFT
@@ -24,6 +26,9 @@ class SwipeExt(object):
         Raises:
             ValueError
         """
+
+        def _swipe(_from, _to):
+            pass
 
         if scale <= 0 or scale > 1.0 or not isinstance(scale, (float, int)):
             raise ValueError("scale must be in range (0, 1.0]")
@@ -66,4 +71,6 @@ class SwipeExt(object):
         Returns:
             Tuple[int, int, int, int]: The validated and converted box coordinates.
         """
+        from .driver import Point
+
         pass
